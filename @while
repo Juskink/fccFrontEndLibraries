@@ -1,0 +1,5 @@
+$y: 1;
+@while $y <= 10 {
+    .text-#{$y} {font-size: 5 * $y;} 
+    $y: $y + 1;
+}
