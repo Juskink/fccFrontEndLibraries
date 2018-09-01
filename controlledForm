@@ -1,0 +1,38 @@
+class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: '',
+      submit: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+    this.setState({
+    // SETS THE INPUT STATE TO THE TYPED INPUT
+      input: event.target.value
+    });
+  }
+  handleSubmit(event) {
+    // THE METHOD BELOW PREVENTS THE DEFAULT FORM SUBMIT BEHAVIOR WHICH WILL REFRESH THE WEB PAGE
+    event.preventDefault();
+    this.setState({
+    // SETS THE SUBMIT PROPERTY TO THE INPUT STATE
+      submit : this.state.input
+      });
+  }
+  render() {
+    return (
+      <div>
+        { /* THE EVENT HANDLER IS ADDED IN THE FORM ELEMENT AND NOT IN THE SUBMIT B */ }
+        <form onSubmit={this.handleSubmit}>
+          { /* SETS THE INITIAL INPUT VALUE TO THE CLASS STATE AND THEN CHANGES THIS VALUE AS INPUT IS ADDED */ }
+          <input value = {this.state.input} onChange = {this.handleChange}/>
+          <button type='submit'>Submit!</button>
+        </form>
+          <h1>{this.state.submit}</h1>
+      </div>
+    );
+  }
+};
