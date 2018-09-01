@@ -1,0 +1,28 @@
+class ControlledInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: ''
+    };
+    
+    this.handleChange = this.handleChange.bind(this);
+    
+  }
+  // THIS METHOD TAKES IN AN "EVENT" PARAMATER AND USES THAT TO SET THE STATE OF THE CLASS
+  handleChange (event){
+    this.setState ({input: event.target.value});
+  }
+  
+  render() {
+    return (
+      <div>
+        { /* NOTICE THAT COMMENTS IN THE RENDER METHOD ARE THE JSX SYNTAX
+        ONLY THE VALUE AND ONCHANGE ATTRIBUTES ARE USED IN THE INPUT ELEMENT NO TYPE*/}
+        <input value = {this.state.input} onChange = {this.handleChange}/>
+        { /* change code above this line */}
+        <h4>Controlled Input:</h4>
+        <p>{this.state.input}</p>
+      </div>
+    );
+  }
+};
