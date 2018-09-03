@@ -10,6 +10,7 @@ const frontEndFrameworks = [
 function Frameworks() {
   // THE KEY ATTRIBUTE SPECIFIED IN THE <LI> ELEMENT HAS BEEN SET TO THE INDEX OF THE ARRAY. THIS IS A LAST RESORT AND SHOULD NOT REALLY BE USED.
   // INVESTIGATE WHAT THE OTHER ATTRIBUTES/VALUES THAT COULD BE USED AS KEYS.
+  //  1. USE THE STRING ITSELF IF THEY WILL ALL BE UNIQUE AS IN THIS CASE. 2. USE A UNIQUE NUMBER.toString() 3. USE AN ID
   const renderFrameworks = frontEndFrameworks.map((value,index)=><li key ={index}> {value}</li>)
   return (
     <div>
