@@ -1,3 +1,4 @@
+// NOTE ABOUT THIS CHALLENGE: YOU CAN STILL SEE THE ORIGINAL BORDER WHEN YOU CREATE THE NEW BORDER AT ONLY 1PX WIDTH.???????
 // the whole idea of this approach is so that there is a clear flow of information that only moves in one direction.
 // maybe a schematic would be good to follow the flow of information.
 class GateKeeper extends React.Component {
