@@ -1,0 +1,32 @@
+// the whole idea of this approach is so that there is a clear flow of information that only moves in one direction.
+// maybe a schematic would be good to follow the flow of information.
+class GateKeeper extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    this.setState({ input: event.target.value })
+  }
+  render() {
+    let inputStyle = {
+      border: '1px solid black'
+    };
+    // THE CODE BELOW IS CHANGING THE JAVASCRIPT VARIABLE AFTER A CERTAIN CONDITION WITH THE TERNARY OPERATOR
+    // IN THIS CASE THE JAVASCRIPT VARIABLE HAPPENS TO BE A CSS STYLE 
+    this.state.input.length>15 ? inputStyle={ border:'3px solid red'}: inputStyle;
+    return (
+      <div>
+        <h3>Don't Type Too Much:</h3>
+        <input
+          type="text"
+          style={inputStyle}
+          value={this.state.input}
+          onChange={this.handleChange} />
+      </div>
+    );
+  }
+};
