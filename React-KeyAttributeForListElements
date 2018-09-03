@@ -1,0 +1,22 @@
+const frontEndFrameworks = [
+  'React',
+  'Angular',
+  'Ember',
+  'Knockout',
+  'Backbone',
+  'Vue'
+];
+
+function Frameworks() {
+  // THE KEY ATTRIBUTE SPECIFIED IN THE <LI> ELEMENT HAS BEEN SET TO THE INDEX OF THE ARRAY. THIS IS A LAST RESORT AND SHOULD NOT REALLY BE USED.
+  // INVESTIGATE WHAT THE OTHER ATTRIBUTES/VALUES THAT COULD BE USED AS KEYS.
+  const renderFrameworks = frontEndFrameworks.map((value,index)=><li key ={index}> {value}</li>)
+  return (
+    <div>
+      <h1>Popular Front End JavaScript Frameworks</h1>
+      <ul>
+        {renderFrameworks}
+      </ul>
+    </div>
+  );
+};
