@@ -1,0 +1,28 @@
+// constants for the value of the action types
+const INCREMENT = "INCREMENT"; 
+const DECREMENT = "DECREMENT"; 
+
+// remember the switch statement syntax.
+const counterReducer = (state =0, action) =>{
+  switch(action.type){
+    case INCREMENT:
+    return state+1
+    break;
+    case DECREMENT:
+    return state-1
+    default:
+    return state=0;
+    break;
+  }
+};
+// action creators with appropraite names
+const incAction = () => {
+  return {type: INCREMENT}
+}
+
+const decAction = () => {
+  return {type: DECREMENT}
+}
+// redux store with initial value of state. This value of state takes precidence over the one in the reducer.
+// the one in the reducer is still required for the case that a state is returned undefined.
+const store = Redux.createStore(counterReducer,0)
