@@ -1,0 +1,19 @@
+
+// ACTION CREATOR ADDMESSAGE WITH "MESSAGE" AS ACTION PAYLOAD/ARGUMENT/PARAMATER
+const addMessage = (message) => {
+  return {
+    type: 'ADD',
+    message: message
+  }
+};
+
+// FUNCTION "mapDispatchToProps" takes paramater "dispatch"
+// AND RETURNS AN OBJECT WITH PROPERTY "submitNewMessage"
+// and value that is a function which takes the argument of the action creator and returns dispatch(actionCreator(argument))
+const mapDispatchToProps = (dispatch) => {
+  return {
+    submitNewMessage: function(message) {
+      dispatch(addMessage(message))
+    }
+  }
+};
