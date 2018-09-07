@@ -5,12 +5,12 @@ class DisplayMessages extends React.Component {
       input: "",
       messages: []
     }
+    // !!REMEMBER TO BIND THIS TO METHODS OTHERWISE THEY WONT WORK!!(NOT DONE IN TIC TAC TOE GAME!!!) - SEE CODEPEN
     this.handleChange = this.handleChange.bind(this);
     this.submitMessages = this.submitMessages.bind(this);
   }
-  // add handleChange() and submitMessage() methods here
-  handleChange(event){
-    // !!! be careful with this.setState
+ 
+    // !!! be careful with "this.setState"
     // the syntax is this.setState({property1:value, property2: value});
     this.setState({
       input: event.target.value,
@@ -18,22 +18,25 @@ class DisplayMessages extends React.Component {
   }
 
   submitMessages(){
+  // MAKE SHALLOW COPY OF ARRAY
     let newMsg = this.state.messages.slice();
     this.setState ({
+    // ADD THE CURRENT INPUT TO THE NEW COPIED ARRAY
       messages : newMsg.concat(this.state.input),
       input : "",
     });
   }
 
   render() {
+    !!!!// CREATE CONSTANT(why would this be a constant and not a let) THAT IS AN ARRAY OF <li> ITEMS
+    const messages = this.state.messages.map((message) => <li>{message}</li>);
     return (
       <div>
-        <h2>Type in a new Message:</h2>
-        { /* render an input, button, and ul here */ }     
+        <h2>Type in a new Message:</h2>  
         <input onChange = {this.handleChange} value= {this.state.input}/>
         <button onClick = {this.submitMessages} > Submit</button>
-        <ul> </ul>
-        { /* change code above this line */ }
+        // RENDER THE variable/constant to the ul elements
+        <ul>{messages}</ul>
       </div>
     );
   }
