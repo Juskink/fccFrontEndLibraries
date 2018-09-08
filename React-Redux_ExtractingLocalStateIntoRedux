@@ -32,6 +32,7 @@ class Presentational extends React.Component {
     super(props);
     this.state = {
       input: '',
+      // THE MESSAGE PROPERTY IS REMOVED FROM THE REACT COMPONENT STATE BECAUSE IT WILL BE MANAGED IN REDUX
     }
     this.handleChange = this.handleChange.bind(this);
     this.submitMessage = this.submitMessage.bind(this);
@@ -45,6 +46,7 @@ class Presentational extends React.Component {
     this.setState({
       input: '',
     });
+    // HERE WE DISPATCH THE SUBMITNEWMESSAGE() FROM THIS.PROPS AND PASS IN THE CURRENT MESSAGE INPUT
     this.props.submitNewMessage(this.state.input);
   }
   render() {
@@ -56,6 +58,7 @@ class Presentational extends React.Component {
           onChange={this.handleChange}/><br/>
         <button onClick={this.submitMessage}>Submit</button>
         <ul>
+        // THE COMPONENT IS NOW BEING PASSED THE MESSAGE STATE AS PROPS FROM REDUX!!!!
           {this.props.messages.map( (message, idx) => {
               return (
                  <li key={idx}>{message}</li>
