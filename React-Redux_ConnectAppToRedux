@@ -83,6 +83,8 @@ const Provider = ReactRedux.Provider;
 const connect = ReactRedux.connect;
 
 // define the Container component here:
+// this constant then becomes an instance of the Presentational component.
+// A component should therefore always have a Capital letter beginning.
 const Container = connect(mapStateToProps,mapDispatchToProps)
 (Presentational)
 
