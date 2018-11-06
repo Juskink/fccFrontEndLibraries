@@ -29,6 +29,8 @@ class DisplayMessages extends React.Component {
 
   render() {
     !!!!// CREATE CONSTANT(why would this be a constant and not a let) THAT IS AN ARRAY OF <li> ITEMS
+    //!! be careful that the variable being used in the map function is put between curly brackets between the <li> tags
+    // as this variable will be going into JSX in the render method and will not be read as a variable otherwise.
     const messages = this.state.messages.map((message) => <li>{message}</li>);
     return (
       <div>
